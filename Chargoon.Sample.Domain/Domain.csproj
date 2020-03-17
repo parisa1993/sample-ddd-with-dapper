@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{655CE7DB-0676-4138-805F-B08F59D1653D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Chargoon.Sample.Domain</RootNamespace>
+    <AssemblyName>Chargoon.Sample.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Chargoon.Library.Models">
+      <HintPath>..\Dependencies\Chargoon.Library.Models.dll</HintPath>
+    </Reference>
+    <Reference Include="Chargoon.Library.Repository">
+      <HintPath>..\Dependencies\Chargoon.Library.Repository.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataAccess\Repository\Role\IRoleReaderRepository.cs" />
+    <Compile Include="DataAccess\Repository\Role\IRoleRepository.cs" />
+    <Compile Include="DataAccess\Repository\Test\ITestReaderRepository.cs" />
+    <Compile Include="DataAccess\Repository\Test\ITestRepository.cs" />
+    <Compile Include="DataAccess\Repository\User\IUserReaderRepository.cs" />
+    <Compile Include="DataAccess\Repository\User\IUserRepository.cs" />
+    <Compile Include="DataModel\RoleModel.cs" />
+    <Compile Include="DataModel\TestModel.cs" />
+    <Compile Include="DataModel\UserModel.cs" />
+    <Compile Include="Dto\User\ListSearchModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\IRoleService.cs" />
+    <Compile Include="Service\ITestService.cs" />
+    <Compile Include="Service\ITokenService.cs" />
+    <Compile Include="Service\IUserService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Dto\Test\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Chargoon.Sample.Framework\Framework.csproj">
+      <Project>{b1f1e8f2-29ce-46c8-a958-c83e01f45f01}</Project>
+      <Name>Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
